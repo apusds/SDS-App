@@ -30,11 +30,13 @@ export class AdminPage {
         {
           next: (data: { status: number, role: string, message?: string, token?: string, email?: string }) => {
             if (data.status !== 200) {
+              this.isAuthenticating = false;
               this.isValidCred = false;
             } else {
-              console.log(data);
               this.isValidCred = true;
               this.isLoggedIn = true;
+              this.isAuthenticating = false;
+
               this.userSettings.setToken(data.token);
               this.userSettings.setEmail(data.email);
               this.userSettings.setRole(data.role);
@@ -42,6 +44,7 @@ export class AdminPage {
           },
           error: (err) => {
             console.log(err);
+            this.isAuthenticating = false;
             this.toastCtrl.create({
               message: 'It looks like the API Failed to respond in time!',
               duration: 3000,
