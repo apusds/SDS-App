@@ -1,0 +1,108 @@
+/* Settings font size
+=========================================*/
+$settings-font-size-header: 24px;
+$settings-font-size-button: 16px;
+$settings-font-size-input-field: 14px;
+$settings-font-size-input-placeholder: 14px;
+$settings-font-size-description: 0.8em;
+$settings-font-size-label: 10px;
+
+/* Settings font weight
+=========================================*/
+$settings-font-weight-header: 300;
+$settings-font-weight-button: 700;
+$settings-font-weight-input-field: 400;
+$settings-font-weight-input-placeholder: 400;
+$settings-font-weight-description: 400;
+$settings-font-weight-label: 600;
+
+/* Settings text color
+=========================================*/
+$settings-text-color-header: #cccccc;
+$settings-text-color-button: #ffffff;
+$settings-text-input-color: #242424;
+$settings-text-input-placeholder: #cccccc;
+$settings-text-color-description: #242424;
+$settings-text-color-description-links: #687dfc;
+$settings-text-label-color: #ff0000;
+
+ion-img {
+    padding: 15px;
+}
+
+h1,
+h2 {
+    color: $settings-text-color-header;
+    font-size: $settings-font-size-header;
+    font-weight: $settings-font-weight-header;
+    line-height: 29px;
+    font-size: 26px;
+    text-align: center;
+}
+.title-text-wrapper {
+    margin: 15px 0 !important;
+}
+strong {
+    display: block;
+}
+
+
+.divider {
+    display: flex;
+    
+    &:before,
+    &:after {
+      content: "";
+      flex: 1;
+    }
+}
+  
+.line {
+    align-items: center;
+    margin: 1em -1em;
+    color: #cccccc;
+    
+    &:before,
+    &:after {
+      height: 1px;
+      margin: 0 1em;
+    }
+} 
+
+.one-line {
+    &:before,
+    &:after {
+       background: #cccccc;
+    }
+}
+
+.auth-form ion-grid,
+.auth-form ion-row {
+    height: 100%;
+    justify-content: center;
+}
+
+.already {
+    display: block;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+@media (min-width: 576px) {
+    ion-grid {
+      position: relative;
+    }
+    .title-text-wrapper {
+      margin: 30px 0 !important;
+    }
+    h1,
+    h2 {
+      line-height: 40px !important;
+      font-size: 37px;
+      text-align: center;
+    }
+    form {
+      margin-top: 0 !important;
+    }
+  }
+  

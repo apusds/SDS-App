@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true">
+  <ion-grid class="ion-no-padding" style="margin-top: 60px;">
+    <ion-row header class="ion-align-items-start ion-align-items-stretch">
+      <ion-col size="10" offset="1" size-md="6" offset-md="3" size-lg="4" offset-lg="4">
+        <ion-img src="https://apusds.com/img/sds.png"></ion-img>
+      </ion-col>
+
+      <ion-col size="10" offset="1" size-md="6" offset-md="3" size-lg="4" offset-lg="4">
+        <ion-row class="ion-align-items-start">
+          <ion-col class="title-text-wrapper" size="12">
+            <h1><strong>Student Developer Society</strong></h1>
+            <h2>We strive to make the world a better place!</h2>
+          </ion-col>
+
+          <ion-col size="12">
+            <div style="margin-top: 50px;">
+              <ion-button (click)="navigateTo('member')" expand="block" color="primary">Member Login</ion-button>
+              <span class="divider line one-line">or</span>
+              <span class="already">Are you a Committee?</span>
+              <ion-button (click)="navigateTo('admin')" expand="block" color="danger">Committee Login</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
