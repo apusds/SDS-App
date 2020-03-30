@@ -27,14 +27,14 @@
                 <ion-col size="12">
                   <div input-field>
                     <ion-item class="ion-no-padding">
-                      <ion-input type="text" [placeholder]="'Username'" [(ngModel)]="username"
-                        [autofocus]="true" [required]="true" name="apkey"></ion-input>
+                      <ion-input type="text" [placeholder]="'Username'" [(ngModel)]="username" [autofocus]="true"
+                        [required]="true" name="apkey"></ion-input>
                     </ion-item>
 
                     <ion-item class="ion-no-padding">
                       <ion-input class="ion-padding-start" [type]="showPassword ? 'text' : 'password'"
-                        [placeholder]="'Password'" [(ngModel)]="password" clear-on-edit="false"
-                        [required]="true" name="password">
+                        [placeholder]="'Password'" [(ngModel)]="password" clear-on-edit="false" [required]="true"
+                        name="password">
                       </ion-input>
 
                       <ion-button type="button" clear slot="end" (click)="showPassword = !showPassword">
@@ -45,9 +45,12 @@
                 </ion-col>
 
                 <ion-col size="12">
-                  <ion-button type="submit" class="login-button ion-no-margin" [disabled]="(username === '' || password === '') || isAuthenticating">
-                  <span *ngIf="!userDidLogin">LOGIN</span>
-                </ion-button>
+                  <ion-button type="submit" class="login-button ion-no-margin"
+                    [disabled]="(username === '' || password === '') || isAuthenticating"
+                    [attr.color]="(isValidCred && isLoggedIn) ? 'success' : (isValidCred && !isLoggedIn) ? 'primary' : 'danger'">
+                    <span *ngIf="!isLoggedIn">LOGIN</span>
+                    <span *ngIf="isLoggedIn">:)</span>
+                  </ion-button>
                 </ion-col>
               </ion-row>
             </form>
