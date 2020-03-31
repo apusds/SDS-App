@@ -12,6 +12,10 @@ export class LoginPage {
     private navCtrl: NavController
   ) { }
 
+  ionViewWillEnter() {
+    document.body.classList.toggle('dark', false);
+  }
+
   navigateTo(page: string) {
     this.navCtrl.navigateForward('/login/' + page);
   }

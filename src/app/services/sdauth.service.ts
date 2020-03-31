@@ -33,6 +33,19 @@ export class SDAuthService {
     ).toPromise();
   }
 
+  logoutFromAll() {
+    let token: string;
+    this.userSettings.getToken().subscribe(r => token = r);
+
+    return this.api.post<any>('/logout', {
+      body: {
+        token
+      }
+    }).pipe(
+      map(data => data.status)
+    );
+  }
+
   adminAuthenticate(username: string, password: string) {
     return this.api.post<any>('/admin', {
       body: {
