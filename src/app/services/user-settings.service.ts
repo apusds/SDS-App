@@ -10,6 +10,7 @@ export class UserSettingsService {
   private token: BehaviorSubject<string>;
   private email: BehaviorSubject<string>;
   private role: BehaviorSubject<string>;
+  private theme: BehaviorSubject<string>;
 
   constructor(
     private storage: Storage
@@ -17,6 +18,7 @@ export class UserSettingsService {
     this.token = new BehaviorSubject('');
     this.email = new BehaviorSubject('');
     this.role = new BehaviorSubject('');
+    this.theme = new BehaviorSubject('light');
   }
 
   clearStorage() {
@@ -40,6 +42,12 @@ export class UserSettingsService {
       value
         ? this.setRole(value)
         : this.setRole('');
+    });
+
+    this.storage.get('theme').then(value => {
+      value
+        ? this.setTheme(value)
+        : this.setTheme('light');
     });
   }
 
@@ -68,5 +76,14 @@ export class UserSettingsService {
   setRole(val: string) {
     this.storage.set('role', val);
     this.role.next(val);
+  }
+
+  getTheme() {
+    return this.theme.asObservable();
+  }
+
+  setTheme(val: string) {
+    this.storage.set('theme', val);
+    this.theme.next(val);
   }
 }

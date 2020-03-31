@@ -3,6 +3,7 @@ import { SDAuthService } from 'src/app/services/sdauth.service';
 import { catchError } from 'rxjs/operators';
 import { UserSettingsService } from 'src/app/services/user-settings.service';
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -20,6 +21,7 @@ export class AdminPage {
   constructor(
     private sds: SDAuthService,
     private toastCtrl: ToastController,
+    private router: Router,
     private userSettings: UserSettingsService
   ) { }
 
@@ -40,6 +42,8 @@ export class AdminPage {
               this.userSettings.setToken(data.token);
               this.userSettings.setEmail(data.email);
               this.userSettings.setRole(data.role);
+
+              this.router.navigate(['tabs'], { replaceUrl: true });
             }
           },
           error: (err) => {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Network } from '@ionic-native/network/ngx';
 import { Platform, ToastController } from '@ionic/angular';
 import { UserSettingsService } from './services/user-settings.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',

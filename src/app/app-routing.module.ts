@@ -10,10 +10,12 @@ const routes: Routes = [
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
     path: 'settings',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsPageModule)
   },
   {

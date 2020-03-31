@@ -9,8 +9,18 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        loadChildren: () =>
-          import('../pages/dashboard/dashboard.module').then(m => m.DashboardPageModule)
+        children: [
+          {
+            path: 'admin',
+            loadChildren: () =>
+            import('../dashboard/dashboard.module').then(m => m.DashboardPageModule)
+          },
+          {
+            path: 'member',
+            loadChildren: () =>
+            import('../dashboard/dashboard.module').then(m => m.DashboardPageModule)
+          }
+        ],
       },
       {
         path: '**',
