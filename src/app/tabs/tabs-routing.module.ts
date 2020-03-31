@@ -4,30 +4,20 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
         path: 'dashboard',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../pages/dashboard/dashboard.module').then(m => m.DashboardPageModule)
-          }
-        ]
+        loadChildren: () =>
+          import('../pages/dashboard/dashboard.module').then(m => m.DashboardPageModule)
       },
       {
-        path: '',
-        redirectTo: '/tabs/dashboard',
+        path: '**',
+        redirectTo: 'dashboard',
         pathMatch: 'full'
       }
     ]
-  },
-  {
-    path: '',
-    redirectTo: '/tabs/dashboard',
-    pathMatch: 'full'
   }
 ];
 
@@ -35,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

@@ -13,7 +13,7 @@ export class AdminPage {
 
   username = '';
   password = '';
-  isAuthenticating = false;
+  isAuthenticating: true | false = false;
   isValidCred: true | false = true;
   isLoggedIn: true | false = false;
 
