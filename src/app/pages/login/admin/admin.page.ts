@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { SDAuthService } from 'src/app/services/sdauth.service';
-import { catchError } from 'rxjs/operators';
 import { UserSettingsService } from 'src/app/services/user-settings.service';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -14,9 +13,9 @@ export class AdminPage {
 
   username = '';
   password = '';
-  isAuthenticating: true | false = false;
-  isValidCred: true | false = true;
-  isLoggedIn: true | false = false;
+  isAuthenticating = false;
+  isValidCred = true;
+  isLoggedIn = false;
 
   constructor(
     private sds: SDAuthService,
